@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase - Online Shopping</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="brand">ShopEase 🛍️</div>
+    <p>Simple Shopping, Smart Choices</p>
+</header>
+
+<nav>
+    <button onclick="showSection('shop')">Shop</button>
+    <button onclick="showSection('cart')">Cart 🛒 (<span id="cartCount">0</span>)</button>
+    <button onclick="showSection('orders')">My Orders</button>
+    <button onclick="showSection('seller')">Seller Panel</button>
+</nav>
+
+<main>
+
+    <!-- SHOP -->
+    <section id="shop" class="section active">
+        <h2>Explore Products</h2>
+        <div id="productList" class="grid"></div>
+    </section>
+
+    <!-- CART -->
+    <section id="cart" class="section">
+        <h2>Your Shopping Cart</h2>
+        <div id="cartItems"></div>
+        <h3 id="total"></h3>
+        <button id="checkoutBtn" class="main-btn" onclick="checkout()">
+            Proceed to Checkout
+        </button>
+    </section>
+
+    <!-- ORDERS -->
+    <section id="orders" class="section">
+        <h2>My Orders</h2>
+        <div id="orderList"></div>
+    </section>
+
+    <!-- SELLER -->
+    <section id="seller" class="section">
+        <h2>Seller Panel</h2>
+
+        <div class="form-box">
+            <h3 id="formTitle">Add Product</h3>
+
+            <form id="sellerForm">
+                <input type="hidden" id="editId">
+
+                <input type="text" id="productName"
+                       placeholder="Product Name" required>
+
+                <input type="number" id="productPrice"
+                       placeholder="Product Price" min="0.01" step="0.01" required>
+
+                <input type="text" id="productEmoji"
+                       placeholder="Product Emoji (e.g. 🎧)" required>
+
+                <textarea id="productDescription"
+                          placeholder="Product Description" required></textarea>
+
+                <button type="submit" class="main-btn" id="saveBtn">
+                    Add Product
+                </button>
+            </form>
+        </div>
+
+        <h3>Manage Products</h3>
+        <div id="sellerList"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>ShopEase | E-Commerce Lab Experiment</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

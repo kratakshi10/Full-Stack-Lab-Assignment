@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #263238;
+}
+
+header {
+    background: linear-gradient(135deg, #34495e, #3498db);
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+.form-box {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 35px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #2471a3;
+}
+
+.form-box button {
+    width: 100%;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-top: 5px solid #3498db;
+}
+
+.card h3 {
+    color: #34495e;
+}
+
+.price {
+    color: #27ae60;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.rating {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+#message {
+    text-align: center;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+}
+
+.empty {
+    text-align: center;
+    padding: 20px;
+}

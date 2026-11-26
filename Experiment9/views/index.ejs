@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Manager</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            margin: 0;
+            padding: 30px;
+            color: #263238;
+        }
+
+        h1 {
+            text-align: center;
+            color: #34495e;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .add-btn {
+            background: #3498db;
+            width: 100%;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .price {
+            color: #27ae60;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .edit-btn {
+            background: #f39c12;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .actions a {
+            text-decoration: none;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🛍️ Product Manager</h1>
+    <p style="text-align:center">Manage your products easily</p>
+
+    <div class="form-box">
+        <h2>Add New Product</h2>
+
+        <form action="/products" method="POST">
+            <input type="text" name="name"
+                   placeholder="Product Name" required>
+
+            <input type="number" name="price"
+                   placeholder="Product Price" min="0" step="0.01" required>
+
+            <textarea name="description"
+                      placeholder="Product Description" required></textarea>
+
+            <button class="add-btn" type="submit">+ Add Product</button>
+        </form>
+    </div>
+
+    <h2>Available Products</h2>
+
+    <div class="products">
+
+        <% if (products.length === 0) { %>
+            <p class="empty">No products available.</p>
+        <% } %>
+
+        <% products.forEach(product => { %>
+
+            <div class="card">
+                <h3><%= product.name %></h3>
+
+                <p class="price">₹<%= product.price %></p>
+
+                <p><%= product.description %></p>
+
+                <div class="actions">
+
+                    <a href="/products/<%= product.id %>/edit">
+                        <button class="edit-btn">Edit</button>
+                    </a>
+
+                    <form action="/products/<%= product.id %>?_method=DELETE"
+                          method="POST">
+
+                        <button class="delete-btn" type="submit">
+                            Delete
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</div>
+
+</body>
+</html>
